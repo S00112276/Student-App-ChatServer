@@ -13,18 +13,16 @@ mongo.connect('mongodb://Breakpoint:breakpoint@breakpoint-shard-00-00-ti5q0.mong
 
     console.log('User Connected...');
 
-    socket.on('retrieve-history', function () {
+    socket.on('retrieve-history', function (data) {
 
       // Get chats from mongo collection 
       chat.find().limit(100).sort({ _id: 1 }).toArray(function (err, res) {
         if (err) {
           throw err;
         }
-
-        for (let i = 0; i < res.length; i++) {
-          io.emit('message', { text: res[i].text, from: res[i].from, created: res[i].created });
-        }
+      data(res);        
       });
+
     });
 
     socket.on('disconnect', function () {
