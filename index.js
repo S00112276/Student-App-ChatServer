@@ -35,9 +35,9 @@ mongo.connect('mongodb://Breakpoint:breakpoint@breakpoint-shard-00-00-ti5q0.mong
     });
 
     socket.on('add-message', (message) => {
-      io.emit('message', { text: message.text, from: socket.username, created: new Date() });
+      io.emit('message', { text: message.text, from: socket.username, created: Date.now() });
 
-      chat.insert({ text: message.text, from: socket.username, created: new Date() }, () => {
+      chat.insert({ text: message.text, from: socket.username, created: Date.now() }, () => {
       });
     });
   });
