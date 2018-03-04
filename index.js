@@ -3,7 +3,7 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 const mongo = require('mongodb').MongoClient;
 
-mongo.connect('mongodb://Breakpoint:breakpoint@breakpoint-shard-00-00-ti5q0.mongodb.net:27017,breakpoint-shard-00-01-ti5q0.mongodb.net:27017,breakpoint-shard-00-02-ti5q0.mongodb.net:27017/student-app?ssl=true&replicaSet=Breakpoint-shard-0&authSource=admin', function (err, db) {
+mongo.connect('mongodb://Breakpoint:breakpoint@breakpoint-shard-00-00-ti5q0.mongodb.net:27017,breakpoint-shard-00-01-ti5q0.mongodb.net:27017,breakpoint-shard-00-02-ti5q0.mongodb.net:27017/breakpoint?ssl=true&replicaSet=Breakpoint-shard-0&authSource=admin', function (err, db) {
   if (err) {
     throw err;
   }
